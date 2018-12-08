@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyCoFcMGhawe0VwlO2d_rg2rVY79O_6XM9M",
@@ -36,4 +38,5 @@ $("button").on("click", function(){
         first_train: first_train,
         frequency: frequency
     });
+});
 });
