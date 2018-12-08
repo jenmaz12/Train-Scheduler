@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="jumbotron jumbotron-fluid text-center">
-        <div class="container">
+        <div class="container-fluid">
             <h1 class="display-6">Train Scheduler</h1>
             <p class="lead">Choose a train from the list below or add your own!</p>
         </div>
@@ -38,11 +38,27 @@
     </table>
     </div>
     <div class="container-fluid">
-        <div class="row bg-primary mx-1">
+        <div class="row bg-primary m-1 py-2">
             <div class="col-12"><h5>Add Train</h5></div> 
         </div>
-        <form>
-            
+        <form class="mx-4">
+            <div class="form-group row">
+                <label for="train-name">Train Name</label>
+                <input type="text" class="form-control" id="train-name">
+            </div>
+            <div class="form-group row">
+                    <label for="destination">Destination</label>
+                    <input type="text" class="form-control" id="destination">
+            </div>
+            <div class="form-group row">
+                    <label for="first-train">First Train Time (HH:mm - military time)</label>
+                    <input type="text" class="form-control" id="first-train">
+            </div>
+            <div class="form-group row">
+                    <label for="frequency">Frequency (min)</label>
+                    <input type="text" class="form-control" id="frequency">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </body>
