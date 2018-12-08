@@ -41,7 +41,6 @@ $("button").on("click", function(){
 
     $("form").trigger("reset");
 });
-
 database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function(snapshot) {
     var newTrain = snapshot.val();
     
@@ -49,6 +48,11 @@ database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", funct
 
     var first_time = newTrain.first_train;
     
+    // first time pushed back one year to ensure it comes before the current time
+    var first_time_converted = moment(first_time, "HH:mm").subtract(1, "years");
+
+    // current time
+    var current = moment();
     $("tbody").append(`<tr>
                         <td>${newTrain.train_name}</td>
                         <td>${newTrain.destination}</td>
