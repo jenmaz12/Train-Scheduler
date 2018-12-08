@@ -38,5 +38,23 @@ $("button").on("click", function(){
         first_train: first_train,
         frequency: frequency
     });
+
+    $("form").trigger("reset");
 });
+
+database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function(snapshot) {
+    var newTrain = snapshot.val();
+    
+    var newFrequency = newTrain.frequency;
+
+    var first_time = newTrain.first_train;
+    
+    $("tbody").append(`<tr>
+                        <td>${newTrain.train_name}</td>
+                        <td>${newTrain.destination}</td>
+                        <td>${newTrain.frequency}</td>
+                        <td id="nextArrival"></td>
+                        <td id="minAway"></td>
+                    </tr>`)
+})
 });
