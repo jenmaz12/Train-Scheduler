@@ -50,15 +50,33 @@ database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", funct
     
     // first time pushed back one year to ensure it comes before the current time
     var first_time_converted = moment(first_time, "HH:mm").subtract(1, "years");
+    console.log(first_time_converted);
 
     // current time
     var current = moment();
+    console.log("Current time: "+moment(current).format("HH:mm"));
+
+    // difference between current time and first_time_converted
+    var diffTimes = moment().diff(moment(first_time_converted), "minutes");
+    console.log("Difference between current time and first train: "+diffTimes);
+
+    // calculate remainder using diffTimes % newFrequency
+    var remainder = diffTimes % newFrequency;
+    console.log(remainder);
+
+    // minutes until next train
+    var nextTrain = newFrequency - remainder;
+    console.log(nextTrain);
+
+    // time of next train;
+    var nextTime = moment().add(nextTrain, "minutes");
+    console.log("Next Train will arrive: "+ moment(nextTime).format("HH:mm"));
     $("tbody").append(`<tr>
                         <td>${newTrain.train_name}</td>
                         <td>${newTrain.destination}</td>
                         <td>${newTrain.frequency}</td>
-                        <td id="nextArrival"></td>
-                        <td id="minAway"></td>
+                        <td id="nextArrival">${moment(nextTime).format("HH:mm")}</td>
+                        <td id="minAway">${nextTrain}</td>
                     </tr>`)
 })
 });
