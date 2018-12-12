@@ -1,0 +1,17 @@
+body {
+    background-color: lightsteelblue;
+}
+
+.jumbotron {
+    width: 100%;
+}
+#results {
+    background-color: lightsteelblue;
+    width: 100%;
+    overflow: auto;
+}
+
+#form {
+    background-color: lightsteelblue;
+    overflow: auto;
+}

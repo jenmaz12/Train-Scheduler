@@ -14,16 +14,16 @@
     <script src="assets/javascript/moment.js"></script>
 </head>
 <body>
-    <div class="jumbotron jumbotron-fluid text-center">
+    <div class="jumbotron jumbotron-fluid text-center bg-secondary m-0">
         <div class="container-fluid">
             <h1 class="display-6">Train Scheduler</h1>
             <p class="lead">Choose a train from the list below or add your own!</p>
         </div>
     </div>
-    <div class="container-fluid">
-    <table class="table">
+    <div class="container-fluid pt-3" id="results">
+    <table class="table table-bordered mb-0 pb-3">
         <thead>
-            <tr class="bg-primary">
+            <tr class="bg-secondary">
                 <th colspan="5">
                    <h5>Current Train Schedule</h1>
                 </th>
@@ -41,8 +41,8 @@
         </tbody>
     </table>
     </div>
-    <div class="container-fluid">
-        <div class="row bg-primary m-1 py-2">
+    <div class="container-fluid py-3" id="form">
+        <div class="row bg-secondary mx-1 py-2">
             <div class="col-12"><h5>Add Train</h5></div> 
         </div>
         <form class="mx-4 mb-4">
@@ -62,7 +62,7 @@
                     <label for="frequency">Frequency (min)</label>
                     <input type="text" class="form-control" id="frequency">
             </div>
-            <button type="submit" class="btn btn-primary row">Submit</button>
+            <button type="submit" class="btn btn-secondary row">Submit</button>
         </form>
     </div>
 </body>
